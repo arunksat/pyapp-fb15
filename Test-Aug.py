@@ -107,7 +107,7 @@ for key_val in sorted(week1_games.iterkeys()):  # i = week1_games[key_val]
         #print ("{} = {} v/s {} = {} \n".format(away_team, temp_away_score, home_team, temp_home_score))
 
 print "Work In Progress...\n"
-print "Work as of Aug 26"
+print "Work as of Aug 26 2015"
 print home_list
 print away_list
 
