@@ -1,3 +1,4 @@
+
 __author__ = 'gamargam'
 # first file
 import json
@@ -88,21 +89,43 @@ for key_val in sorted(week1_games.iterkeys()):  # i = week1_games[key_val]
     elif i == 2:
         home_team = week1_games[key_val]
         i = 1
+
         #print ' %s \t v/s \t %s \n' % (away_team, home_team)
         # Attempting str.format() instead of % string formatting literal - Aug 18
         #print ("| {} | v/s | {} |".format(away_team, home_team))
         #print '----------------'
         #print "Enter Home Team's score:  " - Aug 19
         #print "Enter %s (home team) projected score" % home_team - Aug 26
+
         counter += 1
         print "\n Game # ", counter
         print "============"
+
         print("\n Enter home team score {} ".format(home_team)),
-        temp_home_score = int(input(": "))
+        # Exception handling required for input function
+        # Try / Except is not working - Sep 1
+        try:
+            temp_home_score = int(input(": "))
+        except ValueError:
+            print("\nPlease only use integers")
+        # Exception handling - Sep 1
+        #i = int(input(": "))
+        #try:
+        #    temp_home_score = i
+        #except ValueError:
+        #    print('\nYou did not enter a valid integer')
+        #    #sys.exit(0)
         home_list.append(temp_home_score)
+
         #print "Enter %s (away team) projected score" % away_team - Aug 26
         print(" Enter away team score {} ".format(away_team)),
         temp_away_score = int(input(": "))
+        #j = int(input(": "))
+        #try:
+        #    temp_away_score = j
+        #except ValueError:
+        #    print('\nYou did not enter a valid integer')
+        #    #sys.exit(0)
         away_list.append(temp_away_score)
         #print ("{} = {} v/s {} = {} \n".format(away_team, temp_away_score, home_team, temp_home_score))
 
