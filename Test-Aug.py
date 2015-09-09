@@ -1,8 +1,11 @@
 
 __author__ = 'gamargam'
+
 # first file
 import json
 import sys
+import scrapy
+import prettytable
 
 
 print "Hello world"
@@ -35,6 +38,7 @@ week1_games = {"game1_away": "PIT", "game1_home": "NE", "game2_away": "GB", "gam
                "game3_away": "KC", "game3_home": "HOU", "game4_away": "CLE", "game4_home": "NYJ",
                }
 
+
 # print(week1_games["game16_home"])
 
 # Display formatting - Aug 12
@@ -54,6 +58,11 @@ i = 1
 print '\n WEEK 1 NFL SCHEDULE'
 print '========================\n'
 print '----------------'
+print "\n This Program is about Projecting Scores and Comparing Scores from Week #1 NFL \n"
+
+from prettytable import PrettyTable
+global table
+table = PrettyTable(["Away Team", "Home Team"])
 
 for key_val in sorted(week1_games.iterkeys()):  # i = week1_games[key_val]
     if i == 1:
@@ -62,24 +71,21 @@ for key_val in sorted(week1_games.iterkeys()):  # i = week1_games[key_val]
     elif i == 2:
         home_team = week1_games[key_val]
         i = 1
-        #print ' %s \t v/s \t %s \n' % (away_team, home_team)
-        # Attempting str.format() instead of % string formatting literal - Aug 18
-        print ("| {} | v/s | {} |".format(away_team, home_team))
-        print '----------------'
-        #print "Enter Home Team's score:  " - Aug 19
-        #temp_home_score = int(input("\n Enter Home Team's projected score:" ))
-        #temp_away_score = int(input("Enter Away Team's projected score: "))
-        #print ("{} = {} v/s {} = {} \n".format(away_team, temp_away_score, home_team, temp_home_score))
 
-# Things to fix:
-# Print schedule first in a clean format - define clean
-# Creating a table format for displaying schedule - Req-Display-01
-# Take in scores and then display the projected lineup with the score
+        #print ("| {} | v/s | {} |".format(away_team, home_team))
+        #print '----------------'
+
+        table.add_row([away_team, home_team])
+
+print table
+
 # Aug 25 - No clean-up attempted. Still struggling with basics on Input, Display
 
 home_list = []
 away_list = []
 counter = 0
+
+score_table = PrettyTable(["Away Team", "Away Est. Score", "Home Team", "Home Est. Score"])
 
 for key_val in sorted(week1_games.iterkeys()):  # i = week1_games[key_val]
 
@@ -103,35 +109,32 @@ for key_val in sorted(week1_games.iterkeys()):  # i = week1_games[key_val]
 
         print("\n Enter home team score {} ".format(home_team)),
         # Exception handling required for input function
-        # Try / Except is not working - Sep 1
         try:
             temp_home_score = int(input(": "))
-        except ValueError:
+        except SyntaxError:
             print("\nPlease only use integers")
-        # Exception handling - Sep 1
-        #i = int(input(": "))
-        #try:
-        #    temp_home_score = i
-        #except ValueError:
-        #    print('\nYou did not enter a valid integer')
-        #    #sys.exit(0)
+            raise
         home_list.append(temp_home_score)
 
-        #print "Enter %s (away team) projected score" % away_team - Aug 26
         print(" Enter away team score {} ".format(away_team)),
-        temp_away_score = int(input(": "))
-        #j = int(input(": "))
-        #try:
-        #    temp_away_score = j
-        #except ValueError:
-        #    print('\nYou did not enter a valid integer')
-        #    #sys.exit(0)
+
+        # Basic exception handling - Sep 5
+        try:
+            temp_away_score = int(input(": "))
+        except SyntaxError:
+            print('\nYOU DID NOT ENTER A VALUE ... ENTER AN INTEGER for AWAY TEAM \n')
+            raise
         away_list.append(temp_away_score)
-        #print ("{} = {} v/s {} = {} \n".format(away_team, temp_away_score, home_team, temp_home_score))
+        score_table.add_row([away_team, temp_away_score, home_team, temp_home_score])
+
+
+print '\n'
+
+print score_table
 
 print "Work In Progress...\n"
-print "Work as of Aug 26 2015"
-print home_list
-print away_list
+
+#print home_list
+#print away_list
 
 print (sys.version)
