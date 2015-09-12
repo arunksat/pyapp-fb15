@@ -22,7 +22,7 @@ global away_team
 
 # Week 1 schedule - Aug 11
 
-'''
+
 week1_games = {"game1_away": "PIT", "game1_home": "NE", "game2_away": "GB", "game2_home": "CHI",
                "game3_away": "KC", "game3_home": "HOU", "game4_away": "CLE", "game4_home": "NYJ",
                "game5_away": "IND", "game5_home": "BUF", "game6_away": "MIA", "game6_home": "WAS",
@@ -32,12 +32,12 @@ week1_games = {"game1_away": "PIT", "game1_home": "NE", "game2_away": "GB", "gam
                "game13_away": "BAL", "game13_home": "DEN", "game14_away": "NYG", "game14_home": "DAL",
                "game15_away": "PHI", "game15_home": "ATL", "game16_away": "MIN", "game16_home": "SF"
                }
-'''
 
+'''
 week1_games = {"game1_away": "PIT", "game1_home": "NE", "game2_away": "GB", "game2_home": "CHI",
                "game3_away": "KC", "game3_home": "HOU", "game4_away": "CLE", "game4_home": "NYJ",
                }
-
+'''
 
 # print(week1_games["game16_home"])
 
@@ -104,8 +104,8 @@ for key_val in sorted(week1_games.iterkeys()):  # i = week1_games[key_val]
         #print "Enter %s (home team) projected score" % home_team - Aug 26
 
         counter += 1
-        print "\n Game # ", counter
-        print "============"
+        #print "\n Game # ", counter
+        #print "============"
 
         print("\n Enter home team score {} ".format(home_team)),
         # Exception handling required for input function
