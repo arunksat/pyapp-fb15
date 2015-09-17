@@ -24,7 +24,6 @@ print soup.title.string
 #    print td.text
 #    print "hello inside"
 
-#print "hello world"
 
 #table = soup.find('div', attrs={'class': 'scorebox-wrapper'}) #this statement works
 #table = soup.findAll(['div', 'p ']) # this also works
@@ -38,9 +37,6 @@ print soup.title.string
 #2 for loops: one for team name and one for total-score
 
 #for row in soup.find_all("p", attrs={"class": "team-name"}):
-#    print row.prettify()
-
-#for row in soup.findAll(attrs=["span", "bday"]):
 #    print row.prettify()
 
 #for row in soup.findAll('p', {'class': 'team-name'}, limit=None): #prints scores alone# #
@@ -57,15 +53,24 @@ print soup.title.string
 #rating = teaminfo.p.contents
 #print rating
 
-#team =  soup.findAll(True, {"class":["team-name", "total-score"]})
-#print team
 
 for row in soup.findAll(True, {"class":["team-name", "total-score"]}):
     print row.prettify()
 
+total_score = len(soup.findAll(True, {"class" : ["team-name"]}))
+print int(total_score)
 
-#for row in soup.findAll('p', {'class': 'total-score'}, limit=None): #prints scores alone
-#   print row.prettify()
+print soup.select('.total-score')[2].contents[0]
+print soup.select('.team-name')[2].contents[0]
 
-#   for cell in row.findAll('total-score'):
-#      print cell.prettify()
+'''
+for num in total_score:
+    print soup.select('.total-score')[num].contents[0]
+    print soup.select('.team-name')[num].contents[0]
+    print "\n"
+'''
+
+
+#for title in soup.findAll('p', {'class': 'team-name'}, limit=None):
+#    print title
+
