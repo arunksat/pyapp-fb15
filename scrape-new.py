@@ -18,6 +18,8 @@ print soup.title.string
 
 #sibling_soup.b.next_sibling
 
+# Testing code.
+
 #for td in soup.select('div class > p class > p class:nth-of-type(2)'):
 #    print td.text
 #    print "hello inside"
