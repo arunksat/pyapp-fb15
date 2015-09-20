@@ -54,21 +54,15 @@ print soup.title.string
 #print rating
 
 
-for row in soup.findAll(True, {"class":["team-name", "total-score"]}):
-    print row.prettify()
+#for row in soup.findAll(True, {"class":["team-name", "total-score"]}):
+#    print row.prettify()
 
 total_score = len(soup.findAll(True, {"class" : ["team-name"]}))
 print int(total_score)
 
-print soup.select('.total-score')[2].contents[0]
-print soup.select('.team-name')[2].contents[0]
-
-'''
-for num in total_score:
-    print soup.select('.total-score')[num].contents[0]
+for num in [2,3]:
     print soup.select('.team-name')[num].contents[0]
-    print "\n"
-'''
+    print soup.select('.total-score')[num].contents[0]
 
 
 #for title in soup.findAll('p', {'class': 'team-name'}, limit=None):
