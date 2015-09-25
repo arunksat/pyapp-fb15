@@ -68,3 +68,61 @@ for num in [2,3]:
 #for title in soup.findAll('p', {'class': 'team-name'}, limit=None):
 #    print title
 
+count = 0
+
+
+link = soup.findAll('div', {"class" : ['home-team']})
+
+for link_val in link:
+    divlinks = link_val.findAll('p', {'class' : 'team-name'})
+    for divlink_val in divlinks:
+        team_url = divlink_val.find('a', href=True)['href']
+        print team_url
+
+print "+++++++++++++++++"
+print "-----------------"
+print "+++++++++++++++++"
+
+
+linknew = soup.findAll('div', {"class" : ['home-team']})
+
+for link_newval in linknew:
+    divnewlinks = link_newval.findAll('p', {'class' : 'total-score'})
+    print divnewlinks
+
+print "+++++++++++++++++"
+print "-----------------"
+print "+++++++++++++++++"
+
+link = soup.findAll('div', {"class" : ['away-team']})
+
+for link_val in link:
+    divlinks = link_val.findAll('p', {'class' : 'team-name'})
+    for divlink_val in divlinks:
+        team_url = divlink_val.find('a', href=True)['href']
+        print team_url
+
+print "+++++++++++++++++"
+print "-----------------"
+print "+++++++++++++++++"
+
+
+linknew = soup.findAll('div', {"class" : ['away-team']})
+
+for link_newval in linknew:
+    divnewlinks = link_newval.findAll('p', {'class' : 'total-score'})
+    print divnewlinks
+
+print "+++++++++++++++++"
+print "-----------------"
+print "+++++++++++++++++"
+
+
+scores = soup.select('.total-score')
+print scores
+
+print scores[1].contents[0]
+print scores[2].contents[0]
+print scores[4].contents[0]
+print scores[5].contents[0]
+
