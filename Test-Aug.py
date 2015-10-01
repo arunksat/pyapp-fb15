@@ -52,6 +52,9 @@ week1_games = {"game1_away": "PIT", "game1_home": "NE", "game2_away": "GB", "gam
 # second pass assign next value to temp_var_2
 # print these values and continue with for loop
 
+f_project = open("nfl2015-scores.txt", "rw+")
+print "Name of the file: ", f_project.name
+
 global i
 i = 1
 
@@ -131,6 +134,8 @@ for key_val in sorted(week1_games.iterkeys()):  # i = week1_games[key_val]
 print '\n'
 
 print score_table
+
+#f_project.write(score_table)
 
 print "Work In Progress...\n"
 
